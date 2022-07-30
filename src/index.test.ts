@@ -45,7 +45,7 @@ describe('GraphQL Middleware - Simple way', () => {
       '/graphql',
       graphqlServer({
         schema,
-        rootResovler: () => rootValue,
+        rootResolver: () => rootValue,
       })
     )
 
@@ -79,7 +79,7 @@ describe('GraphQL Middleware - Simple way', () => {
     }
   `)
 
-  const rootResovler: RootResolver = (ctx?: Context) => {
+  const rootResolver: RootResolver = (ctx?: Context) => {
     const name = ctx?.get('name')
     return {
       hi: `hi ${name}`
@@ -98,7 +98,7 @@ describe('GraphQL Middleware - Simple way', () => {
       '/graphql',
       graphqlServer({
         schema,
-        rootResovler,
+        rootResolver,
       })
     )
 

@@ -24,7 +24,7 @@ export type RootResolver = (ctx?: Context) => Promise<unknown> | unknown
 
 type Options = {
   schema: GraphQLSchema
-  rootResovler?: RootResolver,
+  rootResolver?: RootResolver,
   pretty?: boolean
   validationRules?: ReadonlyArray<ValidationRule>
   // graphiql?: boolean
@@ -116,13 +116,13 @@ export const graphqlServer = (options: Options) => {
     }
 
     let result: FormattedExecutionResult
-    const { rootResovler } = options
+    const { rootResolver } = options
 
     try {
       result = await execute({
         schema,
         document: documentAST,
-        rootValue: rootResovler ? await rootResovler(c) : null,
+        rootValue: rootResolver ? await rootResolver(c) : null,
         variableValues: variables,
         operationName: operationName,
       })
