@@ -7,7 +7,7 @@ makeThisModuleAnExecutableReplacer(async ({ parsedImportExportStatement }) => {
       ...parsedImportExportStatement,
       parsedArgument: {
         type: 'URL',
-        url: `https://deno.land/x/hono/mod.ts`,
+        url: 'https://deno.land/x/hono/mod.ts',
       },
     })
   }
